@@ -16,25 +16,27 @@ body {
 }
 
 .container {
-  width: calc(75% - 140px);
-  max-width: calc(1400px - 140px);
+  width: 75%;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+  padding: 20px;
 }
 
-.section-box {
+.section-box,
+.education-section,
+.skills-section,
+.gallery-section,
+#contact,
+#about,
+#header {
   background-color: white;
   border: 5px solid var(--border-color);
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 100px;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   width: 75%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 100px auto;
+  transition: transform 0.3s ease;
 }
 
 /* First, let's define a consistent border style */
@@ -188,44 +190,116 @@ body {
   box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
 }
 
+/* Navigation styles */
 nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   background: linear-gradient(to right, var(--border-color), #FFA500);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  padding: 15px 0;
-  box-shadow: var(--shadow);
-  height: 70px; /* Increased to match original navbar height */
-  min-height: 70px;
+  height: 70px;
 }
 
-nav ul {
+.nav-container {
+  width: 75%;
+  max-width: 1400px;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Center the menu */
+  align-items: center;
+  height: 100%;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 30px;
   list-style: none;
-  
-  margin:center;
+  justify-content: center;
 }
 
-nav ul li {
-  margin:center;
-}
-
-nav ul li a {
-  text-decoration: none;
+.nav-menu li a {
   color: var(--text-dark);
-  font-size: 24px;
-  padding: 10px 20px;
-  display: block;
+  text-decoration: none;
+  font-size: 18px;
   font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
   transition: all 0.3s ease;
 }
 
-nav ul li a:hover {
+.nav-menu li a:hover {
   background-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
+}
+
+/* Hide hamburger menu by default */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--text-dark);
+  cursor: pointer;
+  padding: 5px;
+}
+
+/* Responsive navigation */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-container {
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to right, var(--border-color), #FFA500);
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .nav-menu.show {
+    display: flex;
+  }
+
+  .nav-menu li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-menu li a {
+    display: block;
+    padding: 15px;
+    font-size: 16px;
+  }
+}
+
+/* Adjust spacing for mobile */
+@media (max-width: 480px) {
+  .nav-container {
+    width: 95%;
+    padding: 0 15px;
+  }
+
+  .nav-toggle {
+    font-size: 20px;
+  }
+
+  .nav-menu li a {
+    padding: 12px;
+    font-size: 15px;
+  }
 }
 
 .header-text h1 {
@@ -299,6 +373,9 @@ button.s1:focus {
       height: 150px;
   }
 }
+
+/* About Section Styles */
+
 
 /* About Section Styles */
 #about {
@@ -577,12 +654,9 @@ button.s1:focus {
 
 .education-details {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 15px;
-  padding: 10px;
-  max-width: 1600px;
-  margin: 0 auto;
-  width: 98%;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 20px;
 }
 
 .education-card {
@@ -734,9 +808,9 @@ transform: translateX(-50%);
 
 .skills {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  padding: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  padding: 20px;
 }
 
 .skill-card {
@@ -830,7 +904,6 @@ transform: translateX(-50%);
     font-size: 24px;
   }
 }
-
 /* Portfolio Section */
 .gallery-section {
   min-height: 100vh;
@@ -866,11 +939,10 @@ transform: translateX(-50%);
 }
 
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 20px;
 }
 
 .gallery-item {
@@ -1523,3 +1595,148 @@ body::after {
   }
 }
 
+/* Large screens (1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    width: 75%;
+  }
+}
+
+/* Medium screens (992px to 1199px) */
+@media (max-width: 1199px) {
+  .container,
+  .section-box,
+  .education-section,
+  .skills-section,
+  .gallery-section,
+  #contact,
+  #about,
+  #header {
+    width: 85%;
+  }
+
+  .header-text h1 {
+    font-size: 80px;
+  }
+}
+
+/* Tablet screens (768px to 991px) */
+@media (max-width: 991px) {
+  body {
+    padding: 60px 40px;
+  }
+
+  .container,
+  .section-box,
+  .education-section,
+  .skills-section,
+  .gallery-section,
+  #contact,
+  #about,
+  #header {
+    width: 90%;
+    padding: 25px;
+  }
+
+  .header-text h1 {
+    font-size: 60px;
+  }
+
+  .skills {
+    gap: 20px;
+  }
+
+  body::before,
+  body::after {
+    width: 40px;
+  }
+}
+
+/* Mobile screens (576px to 767px) */
+@media (max-width: 767px) {
+  body {
+    padding: 40px 20px;
+  }
+
+  .container,
+  .section-box,
+  .education-section,
+  .skills-section,
+  .gallery-section,
+  #contact,
+  #about,
+  #header {
+    width: 95%;
+    padding: 20px;
+    margin: 50px auto;
+  }
+
+  .header-text h1 {
+    font-size: 40px;
+  }
+
+  .skills {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  body::before,
+  body::after {
+    width: 20px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+/* Small mobile screens (under 576px) */
+@media (max-width: 575px) {
+  body {
+    padding: 30px 15px;
+  }
+
+  .container,
+  .section-box,
+  .education-section,
+  .skills-section,
+  .gallery-section,
+  #contact,
+  #about,
+  #header {
+    width: 100%;
+    padding: 15px;
+    margin: 30px auto;
+  }
+
+  .header-text h1 {
+    font-size: 32px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .skill-card,
+  .education-card,
+  .gallery-item {
+    padding: 15px;
+  }
+
+  body::before,
+  body::after {
+    width: 10px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
