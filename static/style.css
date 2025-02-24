@@ -654,14 +654,14 @@ button.s1:focus {
 
 .education-details {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
   padding: 20px;
 }
 
 .education-card {
   background: white;
-  padding: 15px 60px;
+  padding: 20px 80px;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
@@ -669,11 +669,11 @@ button.s1:focus {
   position: relative;
   overflow: hidden;
   width: 100%;
-  min-height: 100px;
+  min-height: 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin:10px;
+ 
 }
 
 .education-card::before {
