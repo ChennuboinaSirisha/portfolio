@@ -673,6 +673,7 @@ button.s1:focus {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin:10px;
 }
 
 .education-card::before {
@@ -680,7 +681,7 @@ button.s1:focus {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 120%;
   height: 10px;
   background: linear-gradient(45deg, var(--border-color), #FFA500);
   transition: height 0.3s ease;
