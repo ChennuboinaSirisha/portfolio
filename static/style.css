@@ -668,7 +668,7 @@ button.s1:focus {
   border: 2px solid var(--border-color);
   position: relative;
   overflow: hidden;
-  width: 120%;
+  width: 100%;
   min-height: 100px;
   display: flex;
   flex-direction: column;
